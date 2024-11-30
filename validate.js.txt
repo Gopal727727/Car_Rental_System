@@ -1,0 +1,89 @@
+function validate(){
+    var username = document.getElementById("Username").value;
+    var password = document.getElementById("Pass").value;
+    var cpass = document.getElementById("Cpass").value;
+    var email= document.getElementById("Email").value;
+    var phone = document.getElementById("Phone").value;
+    //username validation
+    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if(username=="")
+    {
+        document.getElementById("user_err").innerText = "-> Username is Required";
+        return false;
+    }
+    else if((username.length<5)||(username.length>20))
+    { 
+        document.getElementById("user_err").innerText = "-> Username Must be between 5 and 20 characters";
+        return false;
+    }
+    else if(format.test(username))
+    {
+        document.getElementById("user_err").innerText = "-> No special character allowed";
+        return false;
+    }
+
+    //email validation
+    var re= /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+    if(email=="")
+    {
+        document.getElementById("email_err").innerText = "-> Email is Required";
+        return false;
+    }
+    else if(!re.test(email))
+    {
+        document.getElementById("email_err").innerText = "-> Invalid Email Structure";
+        return false;
+    }
+
+    //phone validation
+    if(phone=="")
+    {
+        document.getElementById("phone_err").innerText = "-> Phone is Required";
+        return false;
+    }
+
+    var re2=/^\d{10}$/;
+    if(phone.length != 10)
+    {
+        document.getElementById("phone_err").innerText = "-> Phone must be 10 digits";
+        return false;
+    }
+    else if(!re2.test(phone))
+    {
+        document.getElementById("phone_err").innerText = "-> Phone cant contain other characters";
+        return false;
+    }
+
+    //password validation
+    if(password=="")
+    {
+        document.getElementById("pass_err").innerText = "-> Password is Required";
+        return false;
+    }
+
+    if(password.length<8)
+    {
+        document.getElementById("pass_err").innerText = "-> Password must be atleast 8 characters";
+        return false;
+    }
+    else if(password.length>20)
+    {
+        document.getElementById("pass_err").innerText = "-> Password cant exceed 20 characters";
+        return false;
+    }
+    
+    //password comfirmation
+    if(cpass=="")
+    {
+        document.getElementById("cpass_err").innerText = "-> Re-confirm your password";
+         return false;
+    }
+
+    if(cpass!=password)
+    {
+        document.getElementById("cpass_err").innerText = "-> Password dont match";
+        return false;
+    }
+
+    
+}

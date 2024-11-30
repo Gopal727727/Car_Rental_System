@@ -1,0 +1,54 @@
+body{
+    background-image: url(./img/formbg.jpg);
+}
+.container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+}
+.form-signup{
+    max-width: 450px;
+    background: white;
+    position: relative;
+    padding: 20px;
+    background: rgba(235, 233, 230);
+
+}
+.form-signup h2,p{
+    text-align: center;
+}
+.form-control{
+    margin-bottom: 5px;
+    width: 400px;
+    background: rgba(37, 201, 37, 0.25);
+}
+
+.btn
+{
+    width: 120px;
+    text-align: center;
+}
+
+.btn-outline-success
+{
+    margin-right: 150px;
+}
+
+span {
+    color: red;
+    font-size: 13px;
+}
+.created {
+    color: green;
+    font-size: 2rem;
+}
+
+.close {
+    text-decoration: none;
+    margin-right: -15px;
+    font-size: 20px;
+    float: right;
+    border: none;
+    cursor: pointer;
+}

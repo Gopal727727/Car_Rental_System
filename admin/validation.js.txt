@@ -1,0 +1,75 @@
+function validate(){
+    var username = document.getElementById("Username").value;
+    var password = document.getElementById("Pass").value;
+    var email= document.getElementById("Email").value;
+    var phone = document.getElementById("Phone").value;
+    //username validation
+    var re1 = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if(username=="")
+    {
+         alert("Username is Required");
+        return false;
+    }
+    else if((username.length<5)||(username.length>20))
+    { 
+        alert("Username Must be between 5 and 20 characters");
+        return false;
+    }
+    else if(re1.test(username))
+    {
+        alert("cannot contain special characters");
+        return false;
+    }
+
+    //email validation
+    var re= /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+    if(email=="")
+    {
+        alert("Email is Required");
+        return false;
+    }
+    else if(!re.test(email))
+    {
+        alert("Invalid Email Structure");
+        return false;
+    }
+
+    //phone validation
+    if(phone=="")
+    {
+        alert("Phone is Required");
+        return false;
+    }
+
+    var re2=/^\d{10}$/;
+    if(phone.length != 10)
+    {
+        alert("Phone must be 10 digits");
+        return false;
+    }
+    else if(!re2.test(phone))
+    {
+        alert("Phone cant contain other characters");
+        return false;
+    }
+
+    //password validation
+    if(password=="")
+    {
+        alert("Password is Required");
+        return false;
+    }
+
+    if(password.length<8)
+    {
+        alert("Password must be atleast 8 characters");
+        return false;
+    }
+    else if(password.length>20)
+    {
+        alert("Password cant exceed 20 characters");
+        return false;
+    }
+
+    
+}
